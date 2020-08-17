@@ -19,7 +19,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * @license    http://www.gnu.de/documents/gpl-2.0.de.html GPL 2.0+
  * @link       http://www.netresearch.de
  */
-class RteImagesSoftReferenceIndex extends SoftReferenceIndex
+class RteImagesSoftReferenceIndex
 {
     /**
      * Token prefix
@@ -145,4 +145,15 @@ class RteImagesSoftReferenceIndex extends SoftReferenceIndex
         return $images;
     }
 
+
+    /**
+     * Make Token ID for input index.
+     *
+     * @param string $index Suffix value.
+     * @return string Token ID
+     */
+    public function makeTokenID($index = '')
+    {
+        return md5($this->tokenID_basePrefix . ':' . $index);
+    }
 }
